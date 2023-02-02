@@ -1,0 +1,12 @@
+<h3>新規投稿</h3>
+<%= form_with model: book do |f| %>
+  <div class="form-group">
+    <%= f.label '題名' %>
+    <%= f.text_field :book_title, class: "form-control", placeholder: "本の題名" %>
+  </div>
+  <div class="form-group">
+    <%= f.label '内容' %>
+    <%= f.text_area :discription, class: "form-control", placeholder: "ネタバレしないように簡潔に" %>
+  </div>
+  <%= f.submit '投稿する', class: "btn btn-success" %>
+<% end %>
