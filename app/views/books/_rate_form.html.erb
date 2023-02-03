@@ -1,0 +1,20 @@
+<h6 class="m-1">おすすめ度</h6>
+<div id="rate"></div>
+<!--<div class="form-group" id="star">-->
+<!--  <%#= f.hidden_field :rate, id: :rate_star, class:'form-control' %>-->
+<!--</div>-->
+  
+
+ <script>
+    $(function(){
+      let raty_elem = document.querySelector('#rate');
+      raty_elem.innerHTML = ""
+      let option = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'book[rate]',
+        };
+      raty(raty_elem,option);
+     });
+    </script>

@@ -1,0 +1,17 @@
+<h6 class="m-1">おすすめ度</h6>
+      <div class="rate_raty<%= book.id %>"></div>
+      <script>
+        $(function(){
+        let raty_elem = document.querySelector('.rate_raty<%= book.id %>');
+        raty_elem.innerHTML = ""
+        let option = {  
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'book[rate]',
+            score: <%= book ? book.rate : 0 %>,
+            readOnly: true,
+          };
+        raty(raty_elem,option);
+       });
+ </script>
