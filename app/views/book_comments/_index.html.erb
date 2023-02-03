@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <tbody class="col-md-10 mx-auto">
+    <% book.book_comments.reverse.each do |book_comment| %>
+    <tr>
+      <td class="col-md-8 mx-auto"><%= simple_format(book_comment.comment) %>
+      <td class="text-right">
+        <small>
+          <%#= book_comment.user.name %>
+          <%= book_comment.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日") %>
+          <% if book_comment.user == current_user %>
+            <%= link_to "削除", book_book_comment_path(book, book_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </small>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<h3 class="col-12 mt-4">コメントたち</h3>
+<%= form_with model: [book, book_comment], local: false do |f| %>
+  <div class="form-group">
+    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "form-control comment-textarea" %>
+    <%= f.submit "コメントする", class: "btn btn-success mt-2" %>
+  </div>
+<% end %>
