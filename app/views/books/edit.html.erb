@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <%= form_with model: @book do |f| %>
+    <div class="form-group">
+      <%= f.label '題名' %>
+      <%= f.text_field :book_title, class: 'form-control book_title' %>
+    </div>
+    <div class="form-group">
+      <%= f.label '内容' %>
+      <%= f.text_area :description, class: 'form-control book_body' %>
+    </div>
+    
+    
+      <div class="form-group" id="star">
+        <%= f.label "おすすめ度" %>
+        <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
+      </div>
+      
+      <div class="rate_raty<%= @book.id %>"></div>
+        <script>
+          $(function(){
+          let raty_elem = document.querySelector('.rate_raty<%= @book.id %>');
+          raty_elem.innerHTML = ""
+          let option = {  
+              starOn: "<%= asset_path('star-on.png') %>",
+              starOff: "<%= asset_path('star-off.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              scoreName: 'book[rate]',
+              score: <%= @book ? @book.rate : 0 %>,
+              readOnly: true,
+            };
+          raty(raty_elem,option);
+         });
+      </script>
+      
+    <div class="form-group">
+      <%= f.submit "更新！", class: 'btn btn-success' %>
+    </div>
+    <% end %>
+    </div>
+</div>
