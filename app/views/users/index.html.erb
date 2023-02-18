@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="mt-2">ユーザー一覧</div>
+    
+    <% @users.each do |user| %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>フォロー数</th>
+          <th>フォロワー数</th>
+          <th>これまでの投稿数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= user.name %></td>
+          <td>フォロー数</td>
+          <td>フォロワー数</td>
+          <td>これまでの投稿数</td>
+        </tr>
+      </tbody>
+      
+    </table>
+    <% end %>
+  </div>
+</div>
